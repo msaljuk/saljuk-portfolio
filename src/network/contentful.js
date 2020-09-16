@@ -1,11 +1,17 @@
-// const contentful = require("contentful");
+const contentful = require("contentful");
 
-// const client = contentful.createClient({
-//   space: "developer_bookshelf",
-//   accessToken: "0b7f6x59a0",
-// });
+const RESUME_ENTRY_ID = "2K2vFDibrKx8fzy1FCB9NZ";
 
-// client
-//   .getEntry("5PeGS2SoZGSa4GuiQsigQu")
-//   .then((entry) => console.log(entry))
-//   .catch((err) => console.log(err));
+export const client = contentful.createClient({
+  space: process.env.REACT_APP_CONTENTFUL_SPACE_ID,
+  accessToken: process.env.REACT_APP_CONTENTFUL_ACCESS_KEY,
+});
+
+export const getResume = async () => {
+  return client
+    .getEntry(RESUME_ENTRY_ID)
+    .then((entry) => {
+      return entry;
+    })
+    .catch((err) => console.log(err));
+};
