@@ -9,6 +9,7 @@ import linkedIn from "../../assets/images/linkedIn.png";
 import styles from "./LinksFooter.module.scss";
 
 const LinksFooter = () => {
+  // eslint-disable-next-line
   const [resumeUpdated, setResumeUpdated] = useState();
 
   const dateOptions = {
@@ -23,13 +24,21 @@ const LinksFooter = () => {
         <Col className={styles.imageLinks} xs={12} md={"auto"}>
           <Row>
             <Col className={styles.imageContainer} xs={2} md={4}>
-              <img className={styles.imageLink} src={linkedIn}></img>
+              <img
+                alt={"LinkedIn"}
+                className={styles.imageLink}
+                src={linkedIn}
+              ></img>
             </Col>
             <Col className={styles.imageContainer} xs={2} md={4}>
-              <img className={styles.imageLink} src={github}></img>
+              <img
+                alt={"Github"}
+                className={styles.imageLink}
+                src={github}
+              ></img>
             </Col>
             <Col className={styles.imageContainer} xs={2} md={4}>
-              <img className={styles.imageLink} src={email}></img>
+              <img alt={"Email"} className={styles.imageLink} src={email}></img>
             </Col>
           </Row>
         </Col>
