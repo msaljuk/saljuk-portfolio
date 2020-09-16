@@ -1,0 +1,68 @@
+@import "../../breakpoints.scss";
+
+.container {
+  margin-top: 10%;
+
+  @media screen and (max-width: $breakpoint-md) {
+    margin-top: 0%;
+    margin-left: 5%;
+  }
+}
+
+.imageLink {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.imageContainer {
+  padding-left: 5% !important;
+  padding-right: 10px !important;
+
+  @media all and (min-width: $breakpoint-md) {
+    padding-right: 0 !important;
+    padding-left: 10px !important;
+  }
+}
+
+.textContainer {
+  border-left: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media all and (max-width: $breakpoint-md) {
+    margin-top: 15%;
+    border: none;
+    justify-content: flex-start;
+  }
+}
+
+.resumeUpdated {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.lastUpdated {
+  display: none;
+
+  @media all and (min-width: $breakpoint-md) {
+    display: initial;
+  }
+}
+
+.imageLinks {
+  margin-right: 2%;
+}
+
+.moreAboutMe {
+  @media all and (max-width: $breakpoint-md) {
+    border-left: 1px solid black;
+  }
+}
