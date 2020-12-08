@@ -5,7 +5,7 @@ import styles from "./PortfolioOverviewCard.module.scss";
 
 const PortfolioOverviewCard = ({ portfolioItem }) => {
   return (
-    <Col className={styles.cardColumn} xs={12} md={4}>
+    <Col className={styles.cardColumn} xs={12} md={6} lg={4}>
       <Card style={{ height: "30rem", textAlign: "left" }}>
         <Card.Img
           className={styles.cardImg}
