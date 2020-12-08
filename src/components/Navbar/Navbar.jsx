@@ -12,7 +12,13 @@ const CustomNavbar = () => {
   }
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="light" variant="primary">
+    <Navbar
+      className={styles.navbar}
+      collapseOnSelect
+      expand="lg"
+      bg="light"
+      variant="primary"
+    >
       <Navbar.Brand className={styles.brand} href="/">
         saljuk
       </Navbar.Brand>

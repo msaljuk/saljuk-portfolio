@@ -1,0 +1,22 @@
+.cardContainer {
+  margin: 5%;
+}
+
+.cardColumn {
+  margin-bottom: 5%;
+}
+
+.cardImg {
+  object-fit: cover;
+  height: 15rem;
+}
+
+.cardButton {
+  position: absolute;
+  bottom: 25px;
+}
+
+.cardDescription {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
