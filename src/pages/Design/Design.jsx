@@ -1,9 +1,6 @@
-import React, { useEffect } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { useEffect } from "react";
 
-import { getDesignPage } from "../../network/contentful";
-
-import CustomNavbar from "../../components/Navbar/Navbar";
+import { getDesignPage } from "../../Network/contentful";
 
 const Design = () => {
   useEffect(() => {
@@ -14,7 +11,7 @@ const Design = () => {
     fetchData();
   }, []);
 
-  return <CustomNavbar></CustomNavbar>;
+  return null;
 };
 
 export default Design;

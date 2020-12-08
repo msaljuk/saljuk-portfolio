@@ -1,30 +1,27 @@
 import React from "react";
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
+import { useLocation } from "react-router";
 
 import styles from "./Navbar.module.scss";
 
 const CustomNavbar = () => {
+  const location = useLocation();
+
+  if (location.pathname === "/") {
+    return null;
+  }
+
   return (
-    <Navbar collapseOnSelect expand="lg" bg="light">
-      <Navbar.Brand href="#home">saljuk</Navbar.Brand>
+    <Navbar collapseOnSelect expand="lg" bg="light" variant="primary">
+      <Navbar.Brand className={styles.brand} href="/">
+        saljuk
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="mr-auto">
-          <NavDropdown title="Design Portfolio" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">
-              Another action
-            </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-          </NavDropdown>
-          <NavDropdown title="Coding Portfolio" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">
-              Another action
-            </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-          </NavDropdown>
-          <Nav.Link href="#moreaboutme">More About Me</Nav.Link>
+        <Nav className="mr-auto" variant="primary">
+          <Nav.Link href="/design">Design Portfolio</Nav.Link>
+          <Nav.Link href="/code">Coding Portfolio</Nav.Link>
+          <Nav.Link href="/moreaboutme">More About Me</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

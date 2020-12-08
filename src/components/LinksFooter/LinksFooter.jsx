@@ -2,11 +2,11 @@ import classnames from "classnames";
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 
-import { getResume } from "../../network/contentful";
+import { getResume } from "../../Network/contentful";
 
-import email from "../../assets/images/email.png";
-import github from "../../assets/images/github.png";
-import linkedin from "../../assets/images/linkedin.png";
+import email from "../../Assets/images/email.png";
+import github from "../../Assets/images/github.png";
+import linkedin from "../../Assets/images/linkedin.png";
 
 import styles from "./LinksFooter.module.scss";
 
@@ -85,7 +85,7 @@ const LinksFooter = () => {
           className={classnames(styles.textContainer, styles.moreAboutMe)}
           xs={"auto"}
         >
-          <a href="./">More About Me</a>
+          <a href="/moreaboutme">More About Me</a>
         </Col>
       </Row>
     </div>

@@ -4,8 +4,8 @@ import Pulse from "react-reveal/Pulse";
 import Slide from "react-reveal/Slide";
 import { Link } from "react-router-dom";
 
-import { ReactComponent as SplashImage } from "../../assets/images/splash.svg";
-import LinksFooter from "../../components/LinksFooter/LinksFooter";
+import { ReactComponent as SplashImage } from "../../Assets/images/splash.svg";
+import LinksFooter from "../../Components/LinksFooter/LinksFooter";
 
 import styles from "./Home.module.scss";
 
