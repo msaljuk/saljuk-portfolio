@@ -29,8 +29,6 @@ const ImageCarouselModule = ({ defaultTheme, index, props }) => {
       .catch((err) => console.log(err));
   }, [images]);
 
-  console.log(imageData);
-
   return (
     <div className={styles.carouselContainer}>
       {imageData.length > 0 ? (

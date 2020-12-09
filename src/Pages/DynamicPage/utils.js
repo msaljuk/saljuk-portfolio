@@ -3,6 +3,7 @@ import ImageCarouselModule from "../../Components/DynamicPageModules/ImageCarous
 import PageTitleModule from "../../Components/DynamicPageModules/PageTitleModule/PageTitleModule";
 import PageSectionModule from "../../Components/DynamicPageModules/PageSectionModule/PageSectionModule";
 import LongTextCardModule from "../../Components/DynamicPageModules/LongTextCardModule/LongTextCardModule";
+import StepByStepCardModule from "../../Components/DynamicPageModules/StepByStepCardModule/StepByStepCardModule";
 
 export const routeToPageEntry = {
   "/design/cardinal-labs": "6Jp41eiPdqTgrbVHgydMSW",
@@ -19,4 +20,5 @@ export const contentTypeToModule = {
   pageTitleModule: PageTitleModule,
   pageSectionModule: PageSectionModule,
   longTextCardModule: LongTextCardModule,
+  stepByStepModule: StepByStepCardModule,
 };
