@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
+import { HashLink as Link } from "react-router-hash-link";
 
 import styles from "./PageTitleModule.module.scss";
 
@@ -11,7 +12,7 @@ const PageTitleModule = ({ props }) => {
     publishedOn,
     subtitle,
     title,
-  } = props;
+  } = props.fields;
 
   const dateOptions = {
     year: "numeric",
@@ -23,10 +24,11 @@ const PageTitleModule = ({ props }) => {
   );
 
   return (
-    <Row>
+    <Row className={styles.pageContainer}>
       <Col xs={12} lg={4}>
         <div className={styles.landingImageCard}>
           <img
+            alt={"logo"}
             className={styles.landingImage}
             src={pageImage.fields.file.url}
           />
@@ -51,11 +53,13 @@ const PageTitleModule = ({ props }) => {
                   return (
                     <Col xs={12} lg={4}>
                       <Button
+                        as={Link}
                         className={styles.pageSectionButton}
-                        href={`#${pageSection}`}
+                        smooth
+                        to={`#${pageSection}`}
                         variant="outline-primary"
                       >
-                        {pageSection}
+                        {pageSection.replace(/-/g, " ")}
                       </Button>
                     </Col>
                   );

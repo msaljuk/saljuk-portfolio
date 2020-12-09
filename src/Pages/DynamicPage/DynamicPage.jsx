@@ -3,9 +3,9 @@ import { useLocation } from "react-router-dom";
 
 import { getContentFromEntry } from "../../Network/contentful";
 
-import { contentTypeToModule, getContentType, routeToPageEntry } from "./utils";
+import Loader from "../../Components/Loader/Loader";
 
-import styles from "./DynamicPage.module.scss";
+import { contentTypeToModule, getContentType, routeToPageEntry } from "./utils";
 
 const DynamicPage = () => {
   const [dynamicPageData, setDynamicPageData] = useState();
@@ -27,14 +27,18 @@ const DynamicPage = () => {
     }
   }, [location]);
 
+  if (dynamicPageData === undefined) {
+    return <Loader />;
+  }
+
   return (
     <div>
       {dynamicPageData &&
-        dynamicPageData.map((module) => {
+        dynamicPageData.map((module, idx) => {
           const contentType = getContentType(module);
           const ContentModule = contentTypeToModule[contentType];
 
-          return <ContentModule props={module.fields} />;
+          return <ContentModule index={idx} props={module} />;
         })}
     </div>
   );

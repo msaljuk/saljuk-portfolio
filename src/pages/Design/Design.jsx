@@ -3,6 +3,7 @@ import { Row } from "react-bootstrap";
 
 import { getDesignPage } from "../../Network/contentful";
 
+import Loader from "../../Components/Loader/Loader";
 import PortfolioOverviewCard from "../../Components/PortfolioOverviewCard/PortfolioOverviewCard";
 
 import styles from "./Design.module.scss";
@@ -21,16 +22,21 @@ const Design = () => {
     fetchData();
   }, []);
 
+  console.log(designPage);
+
   return (
     <div className={styles.container}>
       <h1 className={styles.pageHeader}>Design Portfolio</h1>
 
-      <Row className={styles.cardContainer}>
-        {designPage &&
-          designPage.map((portfolioItem) => {
+      {designPage ? (
+        <Row className={styles.cardContainer}>
+          {designPage.map((portfolioItem) => {
             return <PortfolioOverviewCard portfolioItem={portfolioItem} />;
           })}
-      </Row>
+        </Row>
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };
