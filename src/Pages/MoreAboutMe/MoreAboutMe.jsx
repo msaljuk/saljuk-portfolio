@@ -1,5 +1,7 @@
 // import React from "react";
 
-const MoreAboutMe = () => {};
+const MoreAboutMe = () => {
+  return null;
+};
 
 export default MoreAboutMe;

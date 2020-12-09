@@ -45,3 +45,12 @@ export const getCodePageRoutes = async () => {
     })
     .catch((err) => console.log(err));
 };
+
+export const getContentFromEntry = async (entryId) => {
+  return client
+    .getEntry(entryId)
+    .then((entry) => {
+      return entry;
+    })
+    .catch((err) => console.log(err));
+};
