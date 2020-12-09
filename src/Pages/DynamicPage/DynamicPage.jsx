@@ -28,7 +28,7 @@ const DynamicPage = () => {
   }, [location]);
 
   return (
-    <div className={styles.container}>
+    <div>
       {dynamicPageData &&
         dynamicPageData.map((module) => {
           const contentType = getContentType(module);

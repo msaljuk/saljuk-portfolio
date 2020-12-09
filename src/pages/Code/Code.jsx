@@ -1,5 +1,7 @@
 // import React from "react";
 
-const Code = () => {};
+const Code = () => {
+  return null;
+};
 
 export default Code;

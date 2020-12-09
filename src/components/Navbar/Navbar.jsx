@@ -12,19 +12,13 @@ const CustomNavbar = () => {
   }
 
   return (
-    <Navbar
-      className={styles.navbar}
-      collapseOnSelect
-      expand="lg"
-      bg="light"
-      variant="primary"
-    >
+    <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
       <Navbar.Brand className={styles.brand} href="/">
         saljuk
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="mr-auto" variant="primary">
+        <Nav className="mr-auto">
           <Nav.Link href="/design">Design Portfolio</Nav.Link>
           <Nav.Link href="/code">Coding Portfolio</Nav.Link>
           <Nav.Link href="/moreaboutme">More About Me</Nav.Link>

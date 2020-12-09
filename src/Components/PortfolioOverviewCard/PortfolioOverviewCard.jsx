@@ -23,7 +23,7 @@ const PortfolioOverviewCard = ({ portfolioItem }) => {
           <Button
             className={styles.cardButton}
             href={portfolioItem.fields.slug}
-            variant="primary"
+            variant="outline-primary"
           >
             Learn more
           </Button>

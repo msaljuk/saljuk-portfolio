@@ -1,0 +1,55 @@
+@import "../../../breakpoints.scss";
+
+.landingImageCard {
+  text-align: center;
+  margin-top: 10%;
+  margin-bottom: 10%;
+
+  @media screen and (min-width: $breakpoint-lg) {
+    margin-top: 35%;
+  }
+}
+
+.landingImage {
+  width: 300px;
+
+  @media screen and (min-width: $breakpoint-lg) {
+    width: 400px;
+  }
+}
+
+.landingCard {
+  padding: 5%;
+  border-radius: 0 !important;
+
+  @media screen and (min-width: $breakpoint-lg) {
+    height: 95vh;
+  }
+}
+
+.projectOverview {
+  margin-top: 7%;
+  font-weight: 200;
+  font-size: 20px;
+
+  @media screen and (min-width: $breakpoint-lg) {
+    font-size: 35px;
+  }
+}
+
+.projectTitle {
+  font-size: 50px;
+
+  @media screen and (min-width: $breakpoint-lg) {
+    font-size: 100px;
+  }
+}
+
+.pageSectionButtons {
+  margin-top: 5%;
+}
+
+.pageSectionButton {
+  width: 100%;
+  margin-top: 5%;
+}
