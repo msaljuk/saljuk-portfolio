@@ -6,6 +6,7 @@ import LongTextCardModule from "../../Components/DynamicPageModules/LongTextCard
 
 export const routeToPageEntry = {
   "/design/cardinal-labs": "6Jp41eiPdqTgrbVHgydMSW",
+  "/design/kya-scope-hai": "5UTBDmJpIE3MoMmGG5RDdp",
 };
 
 export const getContentType = (content) => {
