@@ -4,6 +4,8 @@ import PageTitleModule from "../../Components/DynamicPageModules/PageTitleModule
 import PageSectionModule from "../../Components/DynamicPageModules/PageSectionModule/PageSectionModule";
 import LongTextCardModule from "../../Components/DynamicPageModules/LongTextCardModule/LongTextCardModule";
 import StepByStepCardModule from "../../Components/DynamicPageModules/StepByStepCardModule/StepByStepCardModule";
+import TypographyCardModule from "../../Components/DynamicPageModules/TypographyCardModule/TypographyCardModule";
+import VideoCardModule from "../../Components/DynamicPageModules/VideoCardModule/VideoCardModule";
 
 export const routeToPageEntry = {
   "/design/cardinal-labs": "6Jp41eiPdqTgrbVHgydMSW",
@@ -21,4 +23,6 @@ export const contentTypeToModule = {
   pageSectionModule: PageSectionModule,
   longTextCardModule: LongTextCardModule,
   stepByStepModule: StepByStepCardModule,
+  typographyModule: TypographyCardModule,
+  videoCardModule: VideoCardModule,
 };

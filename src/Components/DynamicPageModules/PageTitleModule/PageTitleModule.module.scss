@@ -37,7 +37,7 @@
   border-radius: 0 !important;
 
   @media screen and (min-width: $breakpoint-lg) {
-    height: 95vh;
+    min-height: 95vh;
   }
 }
 

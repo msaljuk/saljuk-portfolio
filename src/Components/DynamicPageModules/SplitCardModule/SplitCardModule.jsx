@@ -18,9 +18,7 @@ const SplitCardModule = ({ props }) => {
     };
 
     fetchData();
-  }, []);
-
-  console.log(splitCardData);
+  }, [props.sys.id]);
 
   return (
     <div>
@@ -30,6 +28,7 @@ const SplitCardModule = ({ props }) => {
             <Row>
               <Col className={styles.imageContainer} xs={12} lg={6}>
                 <img
+                  alt={`Step ${splitCardData.fields.stepTitle}`}
                   className={styles.image}
                   src={splitCardData.fields.stepImage.fields.file.url}
                 ></img>
