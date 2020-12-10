@@ -1,6 +1,7 @@
 import classnames from "classnames";
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import { getResume } from "../../Network/contentful";
 
@@ -42,7 +43,7 @@ const LinksFooter = () => {
         <Col className={styles.imageLinks} xs={12} md={"auto"}>
           <Row>
             <Col className={styles.imageContainer} xs={2} md={4}>
-              <a href={LINKEDIN_PROFLE}>
+              <a href={LINKEDIN_PROFLE} target="_blank">
                 <img
                   alt={"Linked In"}
                   className={styles.imageLink}
@@ -51,7 +52,7 @@ const LinksFooter = () => {
               </a>
             </Col>
             <Col className={styles.imageContainer} xs={2} md={4}>
-              <a href={GITHUB_PROFILE}>
+              <a href={GITHUB_PROFILE} target="_blank">
                 <img
                   alt={"Github"}
                   className={styles.imageLink}
@@ -60,7 +61,7 @@ const LinksFooter = () => {
               </a>
             </Col>
             <Col className={styles.imageContainer} xs={2} md={4}>
-              <a href={`mailto: ${EMAIL}`}>
+              <a href={`mailto: ${EMAIL}`} target="_blank">
                 <img
                   alt={"Email"}
                   className={styles.imageLink}
@@ -72,7 +73,7 @@ const LinksFooter = () => {
         </Col>
 
         <Col className={styles.textContainer} xs={"auto"}>
-          <a href={resumeFileLink} target="window">
+          <a href={resumeFileLink} target="_blank">
             Resume
           </a>
           <div className={styles.resumeUpdated}>
@@ -85,7 +86,7 @@ const LinksFooter = () => {
           className={classnames(styles.textContainer, styles.moreAboutMe)}
           xs={"auto"}
         >
-          <a href="/moreaboutme">More About Me</a>
+          <Link to="/moreaboutme">More About Me</Link>
         </Col>
       </Row>
     </div>

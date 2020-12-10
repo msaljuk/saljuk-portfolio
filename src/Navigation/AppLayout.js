@@ -1,35 +1,36 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
-import { getCodePageRoutes, getDesignPageRoutes } from "../Network/contentful";
+import { getPageRoutes } from "../Network/contentful";
 
-import CodeLayout from "./SubLayouts/CodeLayout";
-import DesignLayout from "./SubLayouts/DesignLayout";
-
+import Code from "../Pages/Code/Code";
+import Design from "../Pages/Design/Design";
+import DynamicPage from "../Pages/DynamicPage/DynamicPage";
 import Home from "../Pages/Home/Home";
 import MoreAboutMe from "../Pages/MoreAboutMe/MoreAboutMe";
 
 const AppLayout = () => {
-  const [codePageRoutes, setCodePageRoutes] = useState();
-  const [designPageRoutes, setDesignPageRoutes] = useState();
+  const [pageRoutes, setPageRoutes] = useState([]);
 
   useEffect(() => {
-    const fetchCodePageRoutes = async () => {
-      const codePageRoutesData = await getCodePageRoutes();
-      if (codePageRoutesData) {
-        setCodePageRoutes(codePageRoutesData.fields.pageRoutes);
+    const fetchPageRoutes = async () => {
+      const pageRoutesData = await getPageRoutes();
+      if (pageRoutesData) {
+        const pageRoutes = [];
+
+        for (let i = 0; i < pageRoutesData.fields.pageRoutes.length; i++) {
+          pageRoutes.push({
+            pageRoute: pageRoutesData.fields.pageRoutes[i].fields.pageRoute,
+            pageID:
+              pageRoutesData.fields.pageRoutes[i].fields.pageReference.sys.id,
+          });
+        }
+
+        setPageRoutes(pageRoutes);
       }
     };
 
-    const fetchDesignPageRoutes = async () => {
-      const designPageRoutesData = await getDesignPageRoutes();
-      if (designPageRoutesData) {
-        setDesignPageRoutes(designPageRoutesData.fields.pageRoutes);
-      }
-    };
-
-    fetchCodePageRoutes();
-    fetchDesignPageRoutes();
+    fetchPageRoutes();
   }, []);
 
   return (
@@ -37,18 +38,24 @@ const AppLayout = () => {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route path="/design">
-        <DesignLayout routes={designPageRoutes} />
+      <Route exact path="/design">
+        <Design />
       </Route>
-      <Route path="/code">
-        <CodeLayout routes={codePageRoutes} />
+      <Route exact path="/code">
+        <Code />
       </Route>
       <Route exact path="/moreaboutme">
         <MoreAboutMe />
       </Route>
 
-      {/* For any unmatched route, redirect to landing. */}
-      <Redirect to="/" />
+      {pageRoutes &&
+        pageRoutes.map((route) => {
+          return (
+            <Route exact path={route.pageRoute}>
+              <DynamicPage props={{ pageID: route.pageID }} />
+            </Route>
+          );
+        })}
     </Switch>
   );
 };

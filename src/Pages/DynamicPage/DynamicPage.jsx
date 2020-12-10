@@ -1,31 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 
 import { getContentFromEntry } from "../../Network/contentful";
 
 import Loader from "../../Components/Loader/Loader";
 
-import { contentTypeToModule, getContentType, routeToPageEntry } from "./utils";
+import { contentTypeToModule, getContentType } from "./utils";
 
-const DynamicPage = () => {
+const DynamicPage = ({ props }) => {
   const [dynamicPageData, setDynamicPageData] = useState();
-  const location = useLocation();
+
+  const { pageID } = props;
 
   useEffect(() => {
-    const route = location.pathname;
-    const pageEntryID = routeToPageEntry[route];
-
     const fetchData = async () => {
-      const data = await getContentFromEntry(pageEntryID);
+      const data = await getContentFromEntry(pageID);
       if (data) {
         setDynamicPageData(data.fields.pageModules);
       }
     };
 
-    if (pageEntryID !== undefined) {
+    if (pageID !== undefined) {
       fetchData();
     }
-  }, [location]);
+  }, [pageID]);
 
   if (dynamicPageData === undefined) {
     return <Loader />;

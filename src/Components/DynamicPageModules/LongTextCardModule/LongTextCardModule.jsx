@@ -16,7 +16,7 @@ const LongTextCardModule = ({ defaultTheme, index, props }) => {
           target: { fields },
         },
       }) => (
-        <a href={fields.file.url} alt={fields.title} target="window">
+        <a href={fields.file.url} alt={fields.title} target="_blank">
           {content[0].value}
         </a>
       ),

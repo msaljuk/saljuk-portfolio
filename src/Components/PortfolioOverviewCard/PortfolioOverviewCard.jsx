@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import styles from "./PortfolioOverviewCard.module.scss";
 
@@ -21,8 +22,9 @@ const PortfolioOverviewCard = ({ portfolioItem }) => {
             {portfolioItem.fields.description.content[0].content[0].value}
           </Card.Text>
           <Button
+            as={Link}
             className={styles.cardButton}
-            href={portfolioItem.fields.slug}
+            to={portfolioItem.fields.slug}
             variant="outline-primary"
           >
             Learn more
