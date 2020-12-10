@@ -6,8 +6,6 @@ import styles from "./VideoCardModule.module.scss";
 const VideoCardModule = ({ defaultTheme, index, props }) => {
   const { video, videoTitle } = props.fields;
 
-  console.log(video);
-
   return (
     <Card
       className={styles.cardContainer}

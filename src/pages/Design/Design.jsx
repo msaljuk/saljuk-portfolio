@@ -22,8 +22,6 @@ const Design = () => {
     fetchData();
   }, []);
 
-  console.log(designPage);
-
   return (
     <div className={styles.container}>
       <h1 className={styles.pageHeader}>Design Portfolio</h1>
