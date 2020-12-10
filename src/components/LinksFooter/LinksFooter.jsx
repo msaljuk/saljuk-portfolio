@@ -43,7 +43,11 @@ const LinksFooter = () => {
         <Col className={styles.imageLinks} xs={12} md={"auto"}>
           <Row>
             <Col className={styles.imageContainer} xs={2} md={4}>
-              <a href={LINKEDIN_PROFLE} target="_blank">
+              <a
+                href={LINKEDIN_PROFLE}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   alt={"Linked In"}
                   className={styles.imageLink}
@@ -52,7 +56,11 @@ const LinksFooter = () => {
               </a>
             </Col>
             <Col className={styles.imageContainer} xs={2} md={4}>
-              <a href={GITHUB_PROFILE} target="_blank">
+              <a
+                href={GITHUB_PROFILE}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   alt={"Github"}
                   className={styles.imageLink}
@@ -61,7 +69,11 @@ const LinksFooter = () => {
               </a>
             </Col>
             <Col className={styles.imageContainer} xs={2} md={4}>
-              <a href={`mailto: ${EMAIL}`} target="_blank">
+              <a
+                href={`mailto: ${EMAIL}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   alt={"Email"}
                   className={styles.imageLink}
@@ -73,7 +85,7 @@ const LinksFooter = () => {
         </Col>
 
         <Col className={styles.textContainer} xs={"auto"}>
-          <a href={resumeFileLink} target="_blank">
+          <a href={resumeFileLink} target="_blank" rel="noopener noreferrer">
             Resume
           </a>
           <div className={styles.resumeUpdated}>

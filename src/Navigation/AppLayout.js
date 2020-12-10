@@ -10,23 +10,40 @@ import Home from "../Pages/Home/Home";
 import MoreAboutMe from "../Pages/MoreAboutMe/MoreAboutMe";
 
 const AppLayout = () => {
-  const [pageRoutes, setPageRoutes] = useState([]);
+  const [codePageRoutes, setCodePageRoutes] = useState([]);
+  const [designPageRoutes, setDesignPageRoutes] = useState([]);
 
   useEffect(() => {
     const fetchPageRoutes = async () => {
       const pageRoutesData = await getPageRoutes();
       if (pageRoutesData) {
-        const pageRoutes = [];
+        const localCodePageRoutes = [];
+        const localDesignPageRoutes = [];
 
         for (let i = 0; i < pageRoutesData.fields.pageRoutes.length; i++) {
-          pageRoutes.push({
-            pageRoute: pageRoutesData.fields.pageRoutes[i].fields.pageRoute,
-            pageID:
-              pageRoutesData.fields.pageRoutes[i].fields.pageReference.sys.id,
-          });
+          if (
+            pageRoutesData.fields.pageRoutes[i].fields.pageRoute.includes(
+              "/design"
+            )
+          ) {
+            localDesignPageRoutes.push({
+              pageID:
+                pageRoutesData.fields.pageRoutes[i].fields.pageReference.sys.id,
+              pageRoute: pageRoutesData.fields.pageRoutes[i].fields.pageRoute,
+            });
+          } else {
+            localCodePageRoutes.push({
+              pageID:
+                pageRoutesData.fields.pageRoutes[i].fields.pageReference.sys.id,
+              pageName: pageRoutesData.fields.pageRoutes[i].fields.pageName,
+              pageRoute: pageRoutesData.fields.pageRoutes[i].fields.pageRoute,
+              pageType: pageRoutesData.fields.pageRoutes[i].fields.pageType,
+            });
+          }
         }
 
-        setPageRoutes(pageRoutes);
+        setCodePageRoutes(localCodePageRoutes);
+        setDesignPageRoutes(localDesignPageRoutes);
       }
     };
 
@@ -41,15 +58,15 @@ const AppLayout = () => {
       <Route exact path="/design">
         <Design />
       </Route>
-      <Route exact path="/code">
-        <Code />
+      <Route path="/code">
+        <Code props={{ entries: codePageRoutes }} />
       </Route>
       <Route exact path="/moreaboutme">
         <MoreAboutMe />
       </Route>
 
-      {pageRoutes &&
-        pageRoutes.map((route) => {
+      {designPageRoutes &&
+        designPageRoutes.map((route) => {
           return (
             <Route exact path={route.pageRoute}>
               <DynamicPage props={{ pageID: route.pageID }} />

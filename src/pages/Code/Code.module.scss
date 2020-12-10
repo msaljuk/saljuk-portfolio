@@ -1,0 +1,14 @@
+@import "../../breakpoints.scss";
+
+.container {
+  margin: 50px 30px 0 30px;
+
+  @media screen and (min-width: $breakpoint-md) {
+    margin: 50px 75px 0 75px;
+  }
+}
+
+.pageHeader {
+  text-align: center;
+  margin-bottom: 50px;
+}
