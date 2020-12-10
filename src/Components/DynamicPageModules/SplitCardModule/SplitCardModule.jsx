@@ -26,14 +26,22 @@ const SplitCardModule = ({ props }) => {
         <Card className={styles.cardContainer}>
           <Card.Body>
             <Row>
-              <Col className={styles.imageContainer} xs={12} lg={6}>
+              <Col
+                className={styles.imageContainer}
+                xs={12}
+                lg={splitCardData.fields.imageGridSize}
+              >
                 <img
                   alt={`Step ${splitCardData.fields.stepTitle}`}
                   className={styles.image}
                   src={splitCardData.fields.stepImage.fields.file.url}
                 ></img>
               </Col>
-              <Col className={styles.textContainer} xs={12} lg={6}>
+              <Col
+                className={styles.textContainer}
+                xs={12}
+                lg={12 - splitCardData.fields.imageGridSize}
+              >
                 <h4>{splitCardData.fields.stepTitle}</h4>
                 <div className={styles.description}>
                   {documentToReactComponents(

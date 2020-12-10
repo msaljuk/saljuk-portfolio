@@ -1,3 +1,4 @@
+import { INLINES } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import React from "react";
 import { Card } from "react-bootstrap";
@@ -7,6 +8,21 @@ import styles from "./LongTextCardModule.module.scss";
 const LongTextCardModule = ({ defaultTheme, index, props }) => {
   const { description, heading } = props.fields;
 
+  const options = {
+    renderNode: {
+      [INLINES.ASSET_HYPERLINK]: ({
+        content,
+        data: {
+          target: { fields },
+        },
+      }) => (
+        <a href={fields.file.url} alt={fields.title} target="window">
+          {content[0].value}
+        </a>
+      ),
+    },
+  };
+
   return (
     <Card
       className={styles.cardContainer}
@@ -15,7 +31,7 @@ const LongTextCardModule = ({ defaultTheme, index, props }) => {
     >
       <Card.Header className={styles.cardHeader}>{heading}</Card.Header>
       <Card.Body className={styles.cardBody}>
-        {documentToReactComponents(description)}
+        {documentToReactComponents(description, options)}
       </Card.Body>
     </Card>
   );
