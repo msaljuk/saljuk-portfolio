@@ -4,5 +4,5 @@
 
 Website deployed on:
 
-- https://www.saljuk.com
-- https://www.saljuk.netlify.app
+- http://saljuk.com
+- https://saljuk.netlify.app/
