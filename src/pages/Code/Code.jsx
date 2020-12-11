@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useLocation } from "react-router";
 
-import { getCurrentEntry, sortEntriesByType } from "./util";
+import DynamicPage from "../DynamicPage/DynamicPage";
 
 import DropdownSelector from "../../Components/DropdownSelector/DropdownSelector";
+
+import { getCurrentEntry, sortEntriesByType } from "./util";
 
 import styles from "./Code.module.scss";
 
@@ -23,14 +25,24 @@ const Code = ({ props }) => {
   const portfolioEntries = useMemo(() => sortEntriesByType(entries), [entries]);
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.pageHeader}>Coding Portfolio</h1>
-      {selectedEntry && portfolioEntries && (
-        <DropdownSelector
-          props={{ options: portfolioEntries, selectedEntry: selectedEntry }}
-        />
+    <>
+      <div className={styles.constantContainer}>
+        <h1 className={styles.pageHeader}>Coding Portfolio</h1>
+        {portfolioEntries && selectedEntry && (
+          <DropdownSelector
+            props={{
+              options: portfolioEntries,
+              selectedEntry: selectedEntry,
+            }}
+          />
+        )}
+      </div>
+      {selectedEntry && selectedEntry.pageID && (
+        <div className={styles.portfolioContent}>
+          <DynamicPage props={{ pageID: selectedEntry.pageID }} />
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

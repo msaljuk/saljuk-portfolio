@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import Loader from "../../../Components/Loader/Loader";
+
 import { getContentFromEntry } from "../../../Network/contentful";
 
 import {
@@ -13,7 +15,7 @@ const PageSectionModule = ({ index, props }) => {
   const [pageSectionData, setPageSectionData] = useState();
 
   const { id } = props.sys;
-  const { sectionId, sectionName } = props.fields;
+  const { sectionId, sectionName, sectionSubtitle } = props.fields;
 
   const defaultTheme = index % 2 === 0;
 
@@ -35,8 +37,12 @@ const PageSectionModule = ({ index, props }) => {
       }
       id={sectionId}
     >
-      <h1 className={styles.sectionHeading}>{sectionName}</h1>
-      {pageSectionData &&
+      <div className={styles.sectionHeading}>
+        <div className={styles.sectionTitle}>{sectionName}</div>
+        <div className={styles.sectionSubtitle}>{sectionSubtitle}</div>
+      </div>
+
+      {pageSectionData ? (
         pageSectionData.map((module, idx) => {
           const contentType = getContentType(module);
           const ContentModule = contentTypeToModule[contentType];
@@ -48,7 +54,10 @@ const PageSectionModule = ({ index, props }) => {
               props={module}
             />
           );
-        })}
+        })
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };

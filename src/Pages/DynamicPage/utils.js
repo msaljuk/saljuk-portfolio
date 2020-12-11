@@ -3,8 +3,11 @@ import ColorDropletsModule from "../../Components/DynamicPageModules/ColorDrople
 import ImageCarouselModule from "../../Components/DynamicPageModules/ImageCarouselModule/ImageCarouselModule";
 import PageTitleModule from "../../Components/DynamicPageModules/PageTitleModule/PageTitleModule";
 import PageSectionModule from "../../Components/DynamicPageModules/PageSectionModule/PageSectionModule";
+import ProjectHeaderModule from "../../Components/DynamicPageModules/ProjectHeaderModule/ProjectHeaderModule";
 import LongTextCardModule from "../../Components/DynamicPageModules/LongTextCardModule/LongTextCardModule";
+import SplitMaxCardModule from "../../Components/DynamicPageModules/SplitMaxCardModule/SplitMaxCardModule";
 import StepByStepCardModule from "../../Components/DynamicPageModules/StepByStepCardModule/StepByStepCardModule";
+import StepCardModule from "../../Components/DynamicPageModules/StepCardModule/StepCardModule";
 import TypographyCardModule from "../../Components/DynamicPageModules/TypographyCardModule/TypographyCardModule";
 import VideoCardModule from "../../Components/DynamicPageModules/VideoCardModule/VideoCardModule";
 
@@ -18,8 +21,11 @@ export const contentTypeToModule = {
   imageCarouselModule: ImageCarouselModule,
   pageTitleModule: PageTitleModule,
   pageSectionModule: PageSectionModule,
+  projectHeaderModule: ProjectHeaderModule,
   longTextCardModule: LongTextCardModule,
+  splitMaxCardModule: SplitMaxCardModule,
   stepByStepModule: StepByStepCardModule,
+  stepModule: StepCardModule,
   typographyModule: TypographyCardModule,
   videoCardModule: VideoCardModule,
 };

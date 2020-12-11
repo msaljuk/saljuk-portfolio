@@ -35,6 +35,10 @@ const DynamicPage = ({ props }) => {
           const contentType = getContentType(module);
           const ContentModule = contentTypeToModule[contentType];
 
+          if (ContentModule === undefined) {
+            return null;
+          }
+
           return <ContentModule index={idx} props={module} />;
         })}
     </div>

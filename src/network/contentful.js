@@ -1,6 +1,7 @@
 const contentful = require("contentful");
 
 const DESIGN_PAGE_ENTRY_ID = "1ZT7h11Ph6COfhmKpAImTN";
+const MORE_ABOUT_ME_PAGE_ENTRY_ID = "601pynmH3z4CCnxw6eOx6u";
 const PAGE_ROUTES_ENTRY_ID = "40mCWscQr74OUFX5VciAPe";
 const RESUME_ENTRY_ID = "2K2vFDibrKx8fzy1FCB9NZ";
 
@@ -21,6 +22,15 @@ export const getResume = async () => {
 export const getDesignPage = async () => {
   return client
     .getEntry(DESIGN_PAGE_ENTRY_ID)
+    .then((entry) => {
+      return entry;
+    })
+    .catch((err) => console.log(err));
+};
+
+export const getMoreAboutMePage = async () => {
+  return client
+    .getEntry(MORE_ABOUT_ME_PAGE_ENTRY_ID)
     .then((entry) => {
       return entry;
     })
