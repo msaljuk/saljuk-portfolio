@@ -3,7 +3,7 @@
 .cardContainer {
   margin: 50px 30px 50px 30px;
 
-  @media screen and (min-width: $breakpoint-md) {
+  @media screen and (min-width: $breakpoint-lg) {
     margin: 50px 75px 50px 75px;
   }
 }
@@ -29,5 +29,7 @@
 }
 
 .cardDescription {
-  padding-right: 30px;
+  @media screen and (min-width: $breakpoint-lg) {
+    padding-right: 30px;
+  }
 }
