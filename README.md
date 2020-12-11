@@ -6,5 +6,5 @@ Project bootstrapped using Create React App.
 
 Website deployed on:
 
-- http://saljuk.com
+- https://saljuk.com
 - https://saljuk.netlify.app/
