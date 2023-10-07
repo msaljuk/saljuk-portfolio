@@ -11,7 +11,7 @@ import linkedin from "../../Assets/images/linkedin.png";
 
 import styles from "./LinksFooter.module.scss";
 
-const EMAIL = "msaljuk@stanford.edu";
+const EMAIL = "saljukgondal@gmail.com";
 const GITHUB_PROFILE = "https://github.com/msaljuk";
 const LINKEDIN_PROFLE = "https://www.linkedin.com/in/saljuk-gondal-20310a176/";
 
