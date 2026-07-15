@@ -43,7 +43,7 @@ export const getMoreAboutMePage = async () => {
 
 export const getPageRoutes = async () => {
   return client
-    .getEntry(PAGE_ROUTES_ENTRY_ID)
+    .getEntry(PAGE_ROUTES_ENTRY_ID, { include: 2 })
     .then((entry) => {
       return entry;
     })
@@ -52,7 +52,7 @@ export const getPageRoutes = async () => {
 
 export const getContentFromEntry = async (entryId) => {
   return client
-    .getEntry(entryId)
+    .getEntry(entryId, { include: 2 })
     .then((entry) => {
       return entry;
     })
