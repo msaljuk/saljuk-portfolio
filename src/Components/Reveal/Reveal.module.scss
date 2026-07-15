@@ -1,0 +1,62 @@
+.reveal {
+  display: block;
+  width: 100%;
+}
+
+.fadeUp {
+  animation: fadeUp 0.8s ease both;
+}
+
+.slideUp {
+  animation: slideUp 0.85s ease both;
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+  // Keep scaled splash from expanding layout height
+  transform-origin: center center;
+}
+
+.forever {
+  animation-iteration-count: infinite;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fadeUp,
+  .slideUp,
+  .pulse {
+    animation: none;
+  }
+}

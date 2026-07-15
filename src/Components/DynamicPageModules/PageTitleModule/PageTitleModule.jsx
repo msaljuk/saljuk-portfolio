@@ -1,8 +1,14 @@
 import React from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
-import { HashLink as Link } from "react-router-hash-link";
 
 import styles from "./PageTitleModule.module.scss";
+
+const scrollToSection = (sectionId) => {
+  const el = document.getElementById(sectionId);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 const PageTitleModule = ({ props }) => {
   const {
@@ -28,14 +34,14 @@ const PageTitleModule = ({ props }) => {
       <Col xs={12} lg={4}>
         <div className={styles.landingImageCard}>
           <img
-            alt={"logo"}
+            alt="logo"
             className={styles.landingImage}
             src={pageImage.fields.file.url}
           />
         </div>
       </Col>
       <Col xs={12} lg={8} style={{ padding: 0 }}>
-        <Card className={styles.landingCard} bg="white" text="dark">
+        <Card className={styles.landingCard} bg="light" text="dark">
           <Card.Body>
             <Card.Title className={styles.projectTitle}>{title}</Card.Title>
             <Card.Subtitle
@@ -49,21 +55,17 @@ const PageTitleModule = ({ props }) => {
             </Card.Text>
             <Row className={styles.pageSectionButtons}>
               {pageSections &&
-                pageSections.map((pageSection) => {
-                  return (
-                    <Col xs={12} lg={4}>
-                      <Button
-                        as={Link}
-                        className={styles.pageSectionButton}
-                        smooth
-                        to={`#${pageSection}`}
-                        variant="outline-primary"
-                      >
-                        {pageSection.replace(/-/g, " ")}
-                      </Button>
-                    </Col>
-                  );
-                })}
+                pageSections.map((pageSection) => (
+                  <Col key={pageSection} xs={12} lg={4}>
+                    <Button
+                      className={styles.pageSectionButton}
+                      onClick={() => scrollToSection(pageSection)}
+                      variant="outline-primary"
+                    >
+                      {pageSection.replace(/-/g, " ")}
+                    </Button>
+                  </Col>
+                ))}
             </Row>
           </Card.Body>
         </Card>

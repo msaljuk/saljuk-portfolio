@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
 
 import DynamicPage from "../DynamicPage/DynamicPage";
 

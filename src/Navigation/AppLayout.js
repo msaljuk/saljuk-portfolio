@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import { getPageRoutes } from "../Network/contentful";
 
@@ -51,29 +51,23 @@ const AppLayout = () => {
   }, []);
 
   return (
-    <Switch>
-      <Route exact path="/">
-        <Home />
-      </Route>
-      <Route exact path="/design">
-        <Design />
-      </Route>
-      <Route path="/code">
-        <Code props={{ entries: codePageRoutes }} />
-      </Route>
-      <Route exact path="/moreaboutme">
-        <MoreAboutMe />
-      </Route>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/design" element={<Design />} />
+      <Route
+        path="/code/*"
+        element={<Code props={{ entries: codePageRoutes }} />}
+      />
+      <Route path="/moreaboutme" element={<MoreAboutMe />} />
 
-      {designPageRoutes &&
-        designPageRoutes.map((route) => {
-          return (
-            <Route exact path={route.pageRoute}>
-              <DynamicPage props={{ pageID: route.pageID }} />
-            </Route>
-          );
-        })}
-    </Switch>
+      {designPageRoutes.map((route) => (
+        <Route
+          key={route.pageRoute}
+          path={route.pageRoute}
+          element={<DynamicPage props={{ pageID: route.pageID }} />}
+        />
+      ))}
+    </Routes>
   );
 };
 

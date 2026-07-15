@@ -1,19 +1,23 @@
 @import "../../breakpoints.scss";
 
 .container {
-  padding-top: 18%;
+  // Cap width so BS5 xxl containers don't inflate %-based spacing.
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: clamp(72px, 14vw, 180px);
   padding-left: 5%;
   padding-right: 5%;
 
   @media screen and (min-width: $breakpoint-md) {
-    padding-top: 18%;
+    padding-top: clamp(88px, 12vw, 200px);
     padding-left: 3%;
     padding-right: 3%;
   }
 }
 
 .landingTextContainer {
-  margin: 20% 0;
+  margin: clamp(40px, 12vw, 140px) 0;
 
   @media screen and (max-width: $breakpoint-md) {
     margin-left: 5%;
@@ -21,7 +25,11 @@
 }
 
 .splashImage {
+  display: block;
+  width: 100%;
+  height: auto;
   transform: scale(1);
+  transform-origin: center center;
 
   @media all and (min-width: $breakpoint-md) {
     transform: scale(1.3);

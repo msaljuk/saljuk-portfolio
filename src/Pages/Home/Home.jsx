@@ -1,11 +1,10 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Pulse from "react-reveal/Pulse";
-import Slide from "react-reveal/Slide";
 import { Link } from "react-router-dom";
 
-import { ReactComponent as SplashImage } from "../../Assets/images/splash.svg";
+import SplashImage from "../../Assets/images/splash.svg?react";
 import LinksFooter from "../../Components/LinksFooter/LinksFooter";
+import Reveal from "../../Components/Reveal/Reveal";
 
 import styles from "./Home.module.scss";
 
@@ -15,12 +14,12 @@ const Home = () => {
       <div className={styles.container}>
         <Row>
           <Col xs={{ span: 12, order: 1 }} md={{ span: 6, order: 2 }}>
-            <Pulse forever>
-              <SplashImage className={styles.splashImage}></SplashImage>
-            </Pulse>
+            <Reveal animation="pulse" forever>
+              <SplashImage className={styles.splashImage} />
+            </Reveal>
           </Col>
           <Col xs={{ span: 12, order: 2 }} md={{ span: 6, order: 1 }}>
-            <Slide bottom>
+            <Reveal animation="slide-up">
               <div className={styles.landingTextContainer}>
                 <h1 className={styles.headerText}>Hi! My name is Saljuk.</h1>
                 <p>I like to design and code stuff.</p>
@@ -29,7 +28,7 @@ const Home = () => {
                   <Link to="/code">Coding Portfolio</Link>
                 </h6>
               </div>
-            </Slide>
+            </Reveal>
           </Col>
         </Row>
         <LinksFooter />

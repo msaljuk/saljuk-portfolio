@@ -1,13 +1,17 @@
-const contentful = require("contentful");
+import { createClient } from "contentful";
 
 const DESIGN_PAGE_ENTRY_ID = "1ZT7h11Ph6COfhmKpAImTN";
 const MORE_ABOUT_ME_PAGE_ENTRY_ID = "601pynmH3z4CCnxw6eOx6u";
 const PAGE_ROUTES_ENTRY_ID = "40mCWscQr74OUFX5VciAPe";
 const RESUME_ENTRY_ID = "2K2vFDibrKx8fzy1FCB9NZ";
 
-export const client = contentful.createClient({
-  space: process.env.REACT_APP_CONTENTFUL_SPACE_ID,
-  accessToken: process.env.REACT_APP_CONTENTFUL_ACCESS_KEY,
+export const client = createClient({
+  space:
+    import.meta.env.VITE_CONTENTFUL_SPACE_ID ||
+    import.meta.env.REACT_APP_CONTENTFUL_SPACE_ID,
+  accessToken:
+    import.meta.env.VITE_CONTENTFUL_ACCESS_KEY ||
+    import.meta.env.REACT_APP_CONTENTFUL_ACCESS_KEY,
 });
 
 export const getResume = async () => {

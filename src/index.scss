@@ -7,6 +7,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+// Bootstrap 5 underlines links by default; restore BS4 hover-only underlines.
+:root {
+  --bs-link-decoration: none;
+  --bs-link-hover-decoration: underline;
+}
+
+a {
+  text-decoration: none !important;
+
+  &:hover {
+    text-decoration: underline !important;
+  }
+}
+
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus,
+.nav-link,
+.nav-link:hover,
+.nav-link:focus {
+  text-decoration: none !important;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

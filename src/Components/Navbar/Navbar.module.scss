@@ -1,4 +1,17 @@
+@import "../../breakpoints.scss";
+
+.navbar {
+  // Bootstrap 4 used padding: .5rem 1rem; BS5 sets horizontal padding to 0.
+  padding: 0.5rem 1rem;
+}
+
 .brand,
 .brand:hover {
   font-weight: bold;
+}
+
+@media screen and (max-width: $breakpoint-md) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
 }

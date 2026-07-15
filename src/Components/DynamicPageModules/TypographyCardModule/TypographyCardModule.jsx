@@ -1,24 +1,27 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import React from "react";
+import React, { useMemo } from "react";
 import { Card } from "react-bootstrap";
-import GoogleFontLoader from "react-google-font-loader";
-import Typing from "react-typing-animation";
+
+import GoogleFontLoader from "../../GoogleFontLoader/GoogleFontLoader";
+import TypingText from "../../TypingText/TypingText";
 
 import styles from "./TypographyCardModule.module.scss";
 
-const TypographyCardModule = ({ defaultTheme, index, props }) => {
+const TypographyCardModule = ({ defaultTheme, props }) => {
   const { fontDescription, fontName, fontWeight } = props.fields;
+  const fonts = useMemo(
+    () => [
+      {
+        font: fontName,
+        weights: [fontWeight],
+      },
+    ],
+    [fontName, fontWeight]
+  );
 
   return (
     <div>
-      <GoogleFontLoader
-        fonts={[
-          {
-            font: fontName,
-            weights: [fontWeight],
-          },
-        ]}
-      />
+      <GoogleFontLoader fonts={fonts} />
 
       <Card
         className={styles.cardContainer}
@@ -30,11 +33,14 @@ const TypographyCardModule = ({ defaultTheme, index, props }) => {
           <h1 className={styles.fontName} style={{ fontFamily: fontName }}>
             {fontName}
           </h1>
-          <Typing speed={500}>
-            <div className={styles.typingText} style={{ fontFamily: fontName }}>
+          <TypingText
+            className={styles.typingText}
+            speed={40}
+          >
+            <span style={{ fontFamily: fontName }}>
               The quick brown fox jumped over the lazy dog.
-            </div>
-          </Typing>
+            </span>
+          </TypingText>
           <div className={styles.fontDescription}>
             {documentToReactComponents(fontDescription)}
           </div>
