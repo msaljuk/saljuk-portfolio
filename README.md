@@ -24,3 +24,5 @@ Contentful credentials live in `.env` as `REACT_APP_CONTENTFUL_SPACE_ID` and `RE
 - `npm run build` — production build to `build/`
 - `npm run preview` — preview the production build
 - `npm test` — run Vitest
+
+This is a test for Zainab.
